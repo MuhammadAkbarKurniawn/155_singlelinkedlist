@@ -128,3 +128,66 @@ void searchData() {
 		cout << "Data Tidak Ditemukan" << endl;
 	}
 }
+
+int main() {
+	int pilihan;
+	do
+	{
+		try 
+		{
+
+			cout << "1.Tambah Data" << endl;
+			cout << "2.Tambah Data" << endl;
+			cout << "3.Tambah Data" << endl;
+			cout << "4.Tambah Data" << endl;
+			cout << "5.Tambah Data" << endl;
+			cout << "Pilihan" << endl;
+			cin >> pilihan;
+			switch (pilihan)
+			{
+			case 1:
+				addNode();
+				cout << "Data Berhasil Ditambahkan" << endl;
+				system("pause");
+				system("cls");
+				break;
+			case 2:
+				if (listEmpty())
+				{
+					cout << "List Kosong" << endl;
+					system("pause");
+					system("cls");
+					break;
+				}
+
+				int nim;
+				cout << "Masukkan Nim: ";
+				cin >> nim;
+				if (deleteNode(nim)) {
+					cout << "NIM: " << nim << "Berhasil Dihapus" << endl;
+					system("pause");
+					system("cls");
+				}
+				else
+					cout << "Data Tidak Ditemukan" << endl;
+				break;
+			case 3:
+				traverse();
+				break;
+			case 4:
+				searchData();
+				break;
+			case 5:
+				break;
+			default:
+				cout << "Pilihan Tidak Ada" << endl;
+				break;
+			}
+		}
+		catch (exception e)
+		{
+			cout << "Terjadi Kesalahan" << endl;
+		}
+
+	} while (pilihan != 5);
+}
